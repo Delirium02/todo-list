@@ -1,6 +1,7 @@
 /* CSS Reset */
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap');
 
 * {
     margin: 0;
@@ -14,6 +15,123 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-
 /* CUSTOM CSS */
 
+@font-face {
+    font-family: "Petit-Formal-Script";
+    src: url(./fonts/Petit_Formal_Script/PetitFormalScript-Regular.ttf);
+    font-family: "Petit Formal Script", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+:root {
+    --color-1: #9231e0;
+    --color-2: #c7a0b6;
+    --bg-color: #740094;
+    --bg-color-2: #260030;
+    --hover-color: #630079;
+    --hover-color-2: #eab9ff;
+    --click-color: #1d002e;
+}
+
+body {
+    background-image: linear-gradient(90deg, var(--color-1), var(--color-2));
+}
+
+.title {
+    padding: 20px;
+    color: white;
+    background-color: var(--bg-color-2);
+    font-family: "Petit-Formal-Script";
+    box-shadow: 0 2px 10px 3px rgba(0, 0, 0, 0.5);
+}
+
+.toggle-btn-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.toggle-btn-add {
+    margin-top: 3rem;
+}
+
+.toggle-btn-cancel {
+    margin-top: 1rem;
+}
+
+.toggle-btn {
+    padding: 15px;
+    font-size: 18px;
+    color: white;
+    background-color: var(--bg-color-2);
+    border: 2px solid var(--click-color);
+    border-radius: 10px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s, color 0.2s;
+}
+
+.toggle-btn:hover {
+    cursor: pointer;
+    transform: scale(1.02);
+    background-color: var(--hover-color-2);
+    color: black;
+}
+
+.toggle-btn:active {
+    transform: scale(0.98);
+    background-color: var(--click-color);
+}
+
+.container {
+    max-width: 500px;
+    width: 90%;
+    margin: 50px auto;
+    margin-bottom: 0;
+    padding: 20px;
+    color: white;
+    background-color: var(--bg-color);
+    border: 2px solid var(--click-color);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.input-field-toggle {
+    display: none;
+}
+
+#todo-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.field-style {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px 10px 10px 5px;
+    border: 2px solid var(--color-1);
+    border-radius: 5px;
+}
+
+.field-style:focus {
+    outline: none;
+    border:  2px solid var(--click-color);
+}
+
+.checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.add-task-btn {
+    padding: 10px;
+    border: 2px solid var(--color-1);
+    border-radius: 5px;
+}
+
+.add-task-btn:hover {
+    cursor: pointer;
+    border:  2px solid var(--click-color);
+}

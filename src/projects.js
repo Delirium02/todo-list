@@ -21,6 +21,8 @@ function createProject(name) {
     }
 }
 
+// Create a new project and add it to the manager
+
 // push tasks to a project
 const addTaskToProject = (project, task) => {
     project.tasks.push(task);

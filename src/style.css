@@ -52,12 +52,8 @@ body {
     justify-content: center;
 }
 
-.toggle-btn-add {
+.toggle-btn-create {
     margin-top: 3rem;
-}
-
-.toggle-btn-cancel {
-    margin-top: 1rem;
 }
 
 .toggle-btn {
@@ -75,12 +71,12 @@ body {
     cursor: pointer;
     transform: scale(1.02);
     background-color: var(--hover-color-2);
-    color: black;
+    color: var(--click-color);
 }
 
 .toggle-btn:active {
     transform: scale(0.98);
-    background-color: var(--click-color);
+    background-color: var(--color-2);
 }
 
 .container {
@@ -98,11 +94,6 @@ body {
 
 .input-field-toggle {
     display: none;
-}
-
-#todo-form {
-    display: flex;
-    flex-direction: column;
 }
 
 .field-style {
@@ -125,13 +116,8 @@ body {
     margin: 10px 0;
 }
 
-.add-task-btn {
-    padding: 10px;
-    border: 2px solid var(--color-1);
-    border-radius: 5px;
-}
-
-.add-task-btn:hover {
-    cursor: pointer;
-    border:  2px solid var(--click-color);
+.form-btn-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }

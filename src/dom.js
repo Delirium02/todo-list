@@ -1,9 +1,10 @@
-import { tasksList, newTask } from "./tasks.js";
+import { newTask, renderTask } from "./tasks.js";
 import {
     createProject,
     defaultProject,
     projectManager,
     addTaskToProject,
+    currentProject,
 } from "./projects.js";
 import "./style.css";
 
@@ -32,7 +33,7 @@ todoForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const title = document.querySelector("#task-title").value;
-    const desc = document.querySelector("#task-desc").value;
+    const description = document.querySelector("#task-desc").value;
     const dueDate = document.querySelector("#task-due-date").value;
     const priority = document.querySelector("#priority-level").value;
     const notes = document.querySelector("#notes").value;
@@ -40,33 +41,22 @@ todoForm.addEventListener("submit", (e) => {
 
     const createdTask = newTask(
         title,
-        desc,
+        description,
         dueDate,
         priority,
         notes,
         checkbox,
     );
 
-    addTaskToProject(defaultProject, createdTask);
-
-    tasksList.push(createdTask);
+    addTaskToProject(currentProject, createdTask);
 
     renderTask();
 
     todoForm.reset();
+
+    toggleBtnCreate.style.display = "block";
+    inputFieldToggle.style.display = "none";
+    toggleBtnCancel.style.display = "none";
 });
 
-const renderTask = () => {
-    todoList.innerHTML = "";
-
-    tasksList.forEach((task) => {
-        const taskFrame = document.createElement("div");
-        taskFrame.classList.add("task-frame");
-        
-        taskFrame.textContent = task.title;
-
-        todoList.appendChild(taskFrame);
-    });
-}
-
-export { toggleBtnCreate };
+export { toggleBtnCreate, toggleBtnCancel, todoList };

@@ -1,4 +1,4 @@
-import { tasksList, newTask } from "./tasks.js";
+import { newTask } from "./tasks.js";
 
 // this will hold all the projects
 const projectManager = [];
@@ -28,4 +28,4 @@ const addTaskToProject = (project, task) => {
     project.tasks.push(task);
 }
 
-export { createProject, defaultProject, projectManager, addTaskToProject };
+export { projectManager, createProject, defaultProject, currentProject, addTaskToProject };

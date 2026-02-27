@@ -121,3 +121,16 @@ body {
     justify-content: center;
     gap: 20px;
 }
+
+/* JS added classes */
+
+.task-frame {
+    display: flex;
+    justify-content: start;
+    max-width: 350px;
+    height: 100px;
+    margin: 50px;
+    padding: 15px;
+    color: white;
+    background-color: var(--bg-color-2);
+}

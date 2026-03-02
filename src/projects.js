@@ -28,4 +28,8 @@ const addTaskToProject = (project, task) => {
     project.tasks.push(task);
 }
 
+const renderProjects = () => {
+    
+}
+
 export { projectManager, createProject, defaultProject, currentProject, addTaskToProject };

@@ -8,28 +8,43 @@ import {
 } from "./projects.js";
 import "./style.css";
 
-const todoForm = document.querySelector("#todo-form");
-const toggleBtnCreate = document.querySelector(".toggle-btn-create");
-const toggleBtnCancel = document.querySelector(".toggle-btn-cancel");
-const inputFieldToggle = document.querySelector(".input-field-toggle");
-const todoList = document.querySelector("#todo-list");
+const projectForm = document.querySelector("#project-form");
+const projectInputForm = document.querySelector(".project-input-form");
+const createProjectBtn = document.querySelector(".create-project-btn");
+const cancelProjectBtn = document.querySelector(".cancel-project-btn");
 
-toggleBtnCancel.style.display = "none";
+const taskForm = document.querySelector("#task-form");
+const taskInputForm = document.querySelector(".task-input-form");
+const createTaskBtn = document.querySelector(".create-task-btn");
+const cancelTaskBtn = document.querySelector(".cancel-task-btn");
 
-toggleBtnCreate.addEventListener("click", () => {
-    toggleBtnCreate.style.display = "none";
-    inputFieldToggle.style.display = "block";
-    toggleBtnCancel.style.display = "block";
-});
+createProjectBtn.addEventListener("click", () => {
+    createProjectBtn.style.display = "none";
+    createTaskBtn.style.display = "block";
+    projectInputForm.style.display = "block";
+    taskInputForm.style.display = "none";
+})
 
-toggleBtnCancel.addEventListener("click", (e) => {
+cancelProjectBtn.addEventListener("click", (e) => {
     e.preventDefault();
-    toggleBtnCreate.style.display = "block";
-    inputFieldToggle.style.display = "none";
-    toggleBtnCancel.style.display = "none";
+    createProjectBtn.style.display = "block";
+    createTaskBtn.style.display = "block";
+    projectInputForm.style.display = "none";
+})
+
+createTaskBtn.addEventListener("click", () => {
+    createProjectBtn.style.display = "block";
+    projectInputForm.style.display = "none";
+    taskInputForm.style.display = "block";
 });
 
-todoForm.addEventListener("submit", (e) => {
+cancelTaskBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    createTaskBtn.style.display = "block";
+    taskInputForm.style.display = "none";
+});
+
+taskForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const title = document.querySelector("#task-title").value;
@@ -52,11 +67,11 @@ todoForm.addEventListener("submit", (e) => {
 
     renderTask();
 
-    todoForm.reset();
+    taskForm.reset();
 
-    toggleBtnCreate.style.display = "block";
-    inputFieldToggle.style.display = "none";
-    toggleBtnCancel.style.display = "none";
+    createTaskBtn.style.display = "block";
+    taskInputForm.style.display = "none";
+    cancelTaskBtn.style.display = "none";
 });
 
-export { toggleBtnCreate, toggleBtnCancel, todoList };
+export { createTaskBtn, cancelTaskBtn };

@@ -1,5 +1,6 @@
 import { currentProject } from "./projects.js";
-import { todoList } from "./dom.js";
+
+const taskList = document.querySelector("#task-list");
 
 function newTask(title, description, dueDate, priority, notes, checklist) {
     return {
@@ -13,7 +14,7 @@ function newTask(title, description, dueDate, priority, notes, checklist) {
 };
 
 const renderTask = () => {
-    todoList.innerHTML = "";
+    taskList.innerHTML = "";
 
     currentProject.tasks.forEach((task) => {
         const taskFrame = document.createElement("div");
@@ -24,7 +25,7 @@ const renderTask = () => {
             <p>${task.description}</p>
             <p>Due: ${task.dueDate}</p>`
 
-        todoList.appendChild(taskFrame);
+        taskList.appendChild(taskFrame);
     });
 }
 

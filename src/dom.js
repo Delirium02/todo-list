@@ -1,10 +1,12 @@
-import { newTask, renderTask } from "./tasks.js";
+import { createTask, renderTask } from "./tasks.js";
 import {
-    createProject,
-    defaultProject,
     projectManager,
-    addTaskToProject,
+    createProject,
+    addProject,
+    defaultProject,
     currentProject,
+    addTaskToProject,
+    renderProject
 } from "./projects.js";
 import "./style.css";
 
@@ -19,18 +21,17 @@ const createTaskBtn = document.querySelector(".create-task-btn");
 const cancelTaskBtn = document.querySelector(".cancel-task-btn");
 
 createProjectBtn.addEventListener("click", () => {
-    createProjectBtn.style.display = "none";
     createTaskBtn.style.display = "block";
     projectInputForm.style.display = "block";
     taskInputForm.style.display = "none";
-})
+});
 
 cancelProjectBtn.addEventListener("click", (e) => {
     e.preventDefault();
     createProjectBtn.style.display = "block";
     createTaskBtn.style.display = "block";
     projectInputForm.style.display = "none";
-})
+});
 
 createTaskBtn.addEventListener("click", () => {
     createProjectBtn.style.display = "block";
@@ -44,6 +45,20 @@ cancelTaskBtn.addEventListener("click", (e) => {
     taskInputForm.style.display = "none";
 });
 
+// Create new project
+projectForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const projTitle = document.querySelector("#project-title");
+
+    const newProject = createProject(projTitle);
+
+    addProject(newProject);
+
+    renderProject();
+});
+
+// Create new todo task
 taskForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
@@ -54,7 +69,7 @@ taskForm.addEventListener("submit", (e) => {
     const notes = document.querySelector("#notes").value;
     const checkbox = document.querySelector("#task-checkbox").checked;
 
-    const createdTask = newTask(
+    const newTask = createTask(
         title,
         description,
         dueDate,
@@ -63,7 +78,7 @@ taskForm.addEventListener("submit", (e) => {
         checkbox,
     );
 
-    addTaskToProject(currentProject, createdTask);
+    addTaskToProject(currentProject, newTask);
 
     renderTask();
 

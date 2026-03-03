@@ -11,59 +11,71 @@
     <div class="title">
         <h1>To-Do List</h1>
     </div>
-    <div class="create-btn-wrapper">
-        <button class="create-project-btn toggle-btn">Create Project</button>
-        <button class="create-task-btn toggle-btn">Create Task</button>
+
+    <div class="first-column">
+        <main class="content">
+            <aside>
+                <h1>Projects</h1>
+                <ul id="project-list"></ul>
+            </aside>
+            <section>
+                <h2>Tasks</h2>
+                <ul id="task-list"></ul>
+            </section>
+        </main>
     </div>
-    <section class="container project-input-form">
-        <form id="project-form">
-            <input class="field-style" type="text" id="project-title" placeholder="Enter project name" required>
-            
-            <div class="form-btn-wrapper">
-                <div class="toggle-btn-wrapper">
-                    <button class="cancel-project-btn toggle-btn">Cancel</button>
-                </div>
-                <div class="toggle-btn-wrapper">
-                    <button class="add-project-btn toggle-btn" type="submit">Add Project</button>
-                </div>
-            </div>
-            
-        </form>
-    </section>
-    <section class="container task-input-form">
-        <form id="task-form">
-            <input class="field-style" type="text" id="task-title" placeholder="Enter a new task" required>
-            <input class="field-style" type="text" id="task-desc" placeholder="Enter task description (optional)">
-            <input class="field-style" type="date" id="task-due-date">
-            <label for="priority-level">
-                <select name="priority-level" id="priority-level" class="field-style">
-                    <option value="none">None</option>
-                    <option value="low">Low</option>
-                    <option value="medium">Medium</option>
-                    <option value="high">High</option>
-                </select>
-            </label>
-            <textarea class="field-style" name="notes" id="notes" placeholder="Task notes..."></textarea>
 
-            <div class="checkbox-wrapper">
-                <label for="task-checkbox">
-                    <input class="field-style" type="checkbox" id="task-checkbox" name="task-checkbox">
-                    Complete?
+    <div class="second-column">
+        <div class="create-btn-wrapper">
+            <button class="create-project-btn toggle-btn">Create Project</button>
+            <button class="create-task-btn toggle-btn">Create Task</button>
+        </div>
+        <section class="container project-input-form">
+            <form id="project-form">
+                <input class="field-style" type="text" id="project-title" placeholder="Enter project name" required>
+
+                <div class="form-btn-wrapper">
+                    <div class="toggle-btn-wrapper">
+                        <button class="cancel-project-btn toggle-btn">Cancel</button>
+                    </div>
+                    <div class="toggle-btn-wrapper">
+                        <button class="add-project-btn toggle-btn" type="submit">Add Project</button>
+                    </div>
+                </div>
+
+            </form>
+        </section>
+        <section class="container task-input-form">
+            <form id="task-form">
+                <input class="field-style" type="text" id="task-title" placeholder="Enter a new task" required>
+                <input class="field-style" type="text" id="task-desc" placeholder="Enter task description (optional)">
+                <input class="field-style" type="date" id="task-due-date">
+                <label for="priority-level">
+                    <select name="priority-level" id="priority-level" class="field-style">
+                        <option value="none">None</option>
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                    </select>
                 </label>
-            </div>
-            <div class="form-btn-wrapper">
-                <div class="toggle-btn-wrapper">
-                    <button class="cancel-task-btn toggle-btn">Cancel</button>
+                <textarea class="field-style" name="notes" id="notes" placeholder="Task notes..."></textarea>
+                <div class="checkbox-wrapper">
+                    <label for="task-checkbox">
+                        <input class="field-style" type="checkbox" id="task-checkbox" name="task-checkbox">
+                        Complete?
+                    </label>
                 </div>
-                <div class="toggle-btn-wrapper">
-                    <button class="toggle-btn" type="submit">Add Task</button>
-                 </div>
-            </div>
-        </form>
-    </section>
-
-    <ul id="project-list"></ul>
-    <ul id="task-list"></ul>
+                <div class="form-btn-wrapper">
+                    <div class="toggle-btn-wrapper">
+                        <button class="cancel-task-btn toggle-btn">Cancel</button>
+                    </div>
+                    <div class="toggle-btn-wrapper">
+                        <button class="toggle-btn" type="submit">Add Task</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </div>
 </body>
 
 </html>

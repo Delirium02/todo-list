@@ -2,7 +2,7 @@ import { currentProject } from "./projects.js";
 
 const taskList = document.querySelector("#task-list");
 
-function newTask(title, description, dueDate, priority, notes, checklist) {
+function createTask(title, description, dueDate, priority, notes, checklist) {
     return {
         title,
         description,
@@ -29,4 +29,4 @@ const renderTask = () => {
     });
 }
 
-export { newTask, renderTask };
+export { createTask, renderTask };

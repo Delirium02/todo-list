@@ -1,5 +1,7 @@
 import { newTask } from "./tasks.js";
 
+const projectList = document.querySelector("#project-list");
+
 // this will hold all the projects
 const projectManager = [];
 
@@ -28,8 +30,18 @@ const addTaskToProject = (project, task) => {
     project.tasks.push(task);
 }
 
-const renderProjects = () => {
-    
+const renderProject = () => {
+    projectList.innerHTML = "";
+
+    projectManager.forEach((project) => {
+        const projectFrame = document.createElement("div");
+        projectFrame.classList.add("project-frame");
+
+        projectFrame.innerHTML = `<h3>${project.name}</h3>`
+        projectList.appendChild(projectFrame);
+    });
 }
 
-export { projectManager, createProject, defaultProject, currentProject, addTaskToProject };
+renderProject();
+
+export { projectManager, createProject, addProject, defaultProject, currentProject, addTaskToProject, renderProject };

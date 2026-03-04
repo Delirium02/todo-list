@@ -10,6 +10,13 @@ import {
 } from "./projects.js";
 import "./style.css";
 
+const sidebarIcon = document.querySelector(".sidebar-icon");
+const sidebar = document.querySelector(".first-column");
+
+sidebarIcon.addEventListener("click", () => {
+    sidebar.classList.toggle("close-sidebar")
+})
+
 const projectForm = document.querySelector("#project-form");
 const projectInputForm = document.querySelector(".project-input-form");
 const createProjectBtn = document.querySelector(".create-project-btn");
@@ -49,13 +56,18 @@ cancelTaskBtn.addEventListener("click", (e) => {
 projectForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const projTitle = document.querySelector("#project-title");
+    const projTitle = document.querySelector("#project-title").value;
 
     const newProject = createProject(projTitle);
 
     addProject(newProject);
 
     renderProject();
+
+    projectForm.reset();
+
+    createProjectBtn.style.display = "block";
+    projectInputForm.style.display = "none";
 });
 
 // Create new todo task
@@ -86,7 +98,6 @@ taskForm.addEventListener("submit", (e) => {
 
     createTaskBtn.style.display = "block";
     taskInputForm.style.display = "none";
-    cancelTaskBtn.style.display = "none";
 });
 
 export { createTaskBtn, cancelTaskBtn };

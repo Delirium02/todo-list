@@ -1,5 +1,5 @@
-import { newTask, renderTask } from "./tasks.js";
-import { createProject, defaultProject, projectManager, addTaskToProject } from "./projects.js"
-import { toggleBtnCreate, toggleBtnCancel } from "./dom.js";
+import { createTask, renderTask } from "./tasks.js";
+import { projectManager, createProject, addProject, defaultProject, currentProject, addTaskToProject, renderProject, setCurrentPorject } from "./projects.js"
+import "./dom.js";
 import "./style.css";
 

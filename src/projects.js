@@ -1,4 +1,4 @@
-import { newTask } from "./tasks.js";
+import { createTask, renderTask } from "./tasks.js";
 
 const projectList = document.querySelector("#project-list");
 
@@ -38,10 +38,20 @@ const renderProject = () => {
         projectFrame.classList.add("project-frame");
 
         projectFrame.innerHTML = `<h3>${project.name}</h3>`
+
+        projectFrame.addEventListener("click", () => {
+            setCurrentPorject(project);
+            renderTask();
+        })
+
         projectList.appendChild(projectFrame);
     });
 }
 
+const setCurrentPorject = (project) => {
+    currentProject = project;
+}
+
 renderProject();
 
-export { projectManager, createProject, addProject, defaultProject, currentProject, addTaskToProject, renderProject };
+export { projectManager, createProject, addProject, defaultProject, currentProject, addTaskToProject, renderProject, setCurrentPorject };

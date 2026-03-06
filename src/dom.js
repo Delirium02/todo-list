@@ -12,9 +12,10 @@ import "./style.css";
 
 const sidebarIcon = document.querySelector(".sidebar-icon");
 const sidebar = document.querySelector(".first-column");
+const secondColumn = document.querySelector(".second-column");
 
 sidebarIcon.addEventListener("click", () => {
-    sidebar.classList.toggle("close-sidebar")
+    sidebar.classList.toggle("close-sidebar");
 })
 
 const projectForm = document.querySelector("#project-form");

@@ -26,13 +26,13 @@ body {
 }
 
 :root {
-    --color-1: #9231e0;
-    --color-2: #c7a0b6;
-    --bg-color: #740094;
-    --bg-color-2: #260030;
-    --hover-color: #630079;
-    --hover-color-2: #eab9ff;
-    --click-color: #1d002e;
+    --color-1: #9d4edd;
+    --color-2: #e0aaff;
+    --bg-color: #3c096c;
+    --bg-color-2: #10002b;
+    --hover-color: #5a189a;
+    --hover-color-2: #c77dff;
+    --click-color: #240046;
 }
 
 body {
@@ -94,8 +94,9 @@ body {
     justify-content: center;
 }
 
-.create-task-btn, .create-project-btn {
-    margin: 0 0.5rem ;
+.create-task-btn,
+.create-project-btn {
+    margin: 0 0.5rem;
 }
 
 .toggle-btn {
@@ -134,7 +135,8 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.project-input-form, .task-input-form {
+.project-input-form,
+.task-input-form {
     display: none;
 }
 
@@ -154,7 +156,7 @@ body {
 
 .field-style:focus {
     outline: none;
-    border:  2px solid var(--click-color);
+    border: 2px solid var(--click-color);
 }
 
 .checkbox-wrapper {
@@ -170,6 +172,29 @@ body {
     gap: 20px;
 }
 
+.task-area {
+    width: fit-content;
+    color: white;
+    background-color: var(--bg-color-2);
+    padding: 20px;
+    margin-top: 20px;
+    border: 5px solid var(--bg-color);
+    border-radius: 10px;
+}
+
+.task-list-container {
+    display: none;
+    width: 100%;
+    margin: 30px auto;
+    margin-bottom: 0;
+    padding: 20px;
+    color: white;
+    background-color: var(--bg-color);
+    border: 2px solid var(--click-color);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
 /* JS added classes */
 
 .project-frame {
@@ -179,6 +204,7 @@ body {
     padding: 15px 0;
     color: white;
     font-size: 20px;
+    white-space: nowrap;
 }
 
 .project-frame:hover {
@@ -187,9 +213,10 @@ body {
 }
 
 .task-frame {
-    display: grid;
-    justify-content: start;
-    margin: 10px 0;
-    padding: 15px 0;
+    width: fit-content;
     color: white;
+    background-color: var(--bg-color-2);
+    padding: 20px;
+    border: 5px solid var(--bg-color);
+    border-radius: 10px;
 }

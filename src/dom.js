@@ -1,4 +1,4 @@
-import { createTask, renderTask } from "./tasks.js";
+import { createTask, renderTask, deleteBtn } from "./tasks.js";
 import {
     projectManager,
     createProject,
@@ -27,6 +27,8 @@ const taskForm = document.querySelector("#task-form");
 const taskInputForm = document.querySelector(".task-input-form");
 const createTaskBtn = document.querySelector(".create-task-btn");
 const cancelTaskBtn = document.querySelector(".cancel-task-btn");
+
+const taskListContainer = document.querySelector(".task-list-container");
 
 createProjectBtn.addEventListener("click", () => {
     createTaskBtn.style.display = "block";
@@ -99,6 +101,7 @@ taskForm.addEventListener("submit", (e) => {
 
     createTaskBtn.style.display = "block";
     taskInputForm.style.display = "none";
+    taskListContainer.style.display = "block";
 });
 
 export { createTaskBtn, cancelTaskBtn };

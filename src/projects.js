@@ -9,14 +9,14 @@ const projectManager = [];
 function createProject(name) {
     return {
         name,
-        tasks: []
-    }
+        tasks: [],
+    };
 }
 
 // add project to the manager
 const addProject = (project) => {
     projectManager.push(project);
-}
+};
 
 const defaultProject = createProject("Default Project");
 addProject(defaultProject);
@@ -28,7 +28,7 @@ let currentProject = defaultProject;
 // push tasks to a project
 const addTaskToProject = (project, task) => {
     project.tasks.push(task);
-}
+};
 
 const renderProject = () => {
     projectList.innerHTML = "";
@@ -37,21 +37,30 @@ const renderProject = () => {
         const projectFrame = document.createElement("div");
         projectFrame.classList.add("project-frame");
 
-        projectFrame.innerHTML = `<h3>${project.name}</h3>`
+        projectFrame.innerHTML = `<h3>${project.name}</h3>`;
 
         projectFrame.addEventListener("click", () => {
             setCurrentPorject(project);
             renderTask();
-        })
+        });
 
         projectList.appendChild(projectFrame);
     });
-}
+};
 
 const setCurrentPorject = (project) => {
     currentProject = project;
-}
+};
 
 renderProject();
 
-export { projectManager, createProject, addProject, defaultProject, currentProject, addTaskToProject, renderProject, setCurrentPorject };
+export {
+    projectManager,
+    createProject,
+    addProject,
+    defaultProject,
+    currentProject,
+    addTaskToProject,
+    renderProject,
+    setCurrentPorject,
+};

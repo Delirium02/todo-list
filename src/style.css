@@ -176,14 +176,14 @@ body {
     width: fit-content;
     color: white;
     background-color: var(--bg-color-2);
-    padding: 20px;
+    padding: 10px 20px;
     margin-top: 20px;
     border: 5px solid var(--bg-color);
     border-radius: 10px;
+    font-size: 17px;
 }
 
 .task-list-container {
-    display: none;
     width: 100%;
     margin: 30px auto;
     margin-bottom: 0;
@@ -193,6 +193,16 @@ body {
     border: 2px solid var(--click-color);
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.task-list {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 /* JS added classes */
@@ -213,10 +223,12 @@ body {
 }
 
 .task-frame {
-    width: fit-content;
+    flex: 0 0 200px;
+    width: 200px;
     color: white;
     background-color: var(--bg-color-2);
     padding: 20px;
     border: 5px solid var(--bg-color);
     border-radius: 10px;
+    list-style: none;
 }

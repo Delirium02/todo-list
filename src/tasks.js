@@ -1,23 +1,26 @@
 import { currentProject } from "./projects.js";
 
 const taskList = document.querySelector("#task-list");
+const taskListContainer = document.querySelector(".task-list-container");
 
 function createTask(title, description, dueDate, priority, notes, checklist) {
     return {
         title,
         description,
         dueDate,
-        priority, 
-        notes, 
-        checklist
-    }
-};
+        priority,
+        notes,
+        checklist,
+    };
+}
 
 const renderTask = () => {
+    taskListContainer.style.display = currentProject.tasks.length > 0 ? "block" : "none";
+    
     taskList.innerHTML = "";
 
     currentProject.tasks.forEach((task) => {
-        const taskFrame = document.createElement("div");
+        const taskFrame = document.createElement("li");
         taskFrame.classList.add("task-frame");
 
         taskFrame.innerHTML = `
@@ -39,6 +42,6 @@ const renderTask = () => {
         taskFrame.appendChild(deleteBtn);
         taskList.appendChild(taskFrame);
     });
-}
+};
 
 export { createTask, renderTask };

@@ -1,6 +1,7 @@
 import { createTask, renderTask } from "./tasks.js";
 
 const projectList = document.querySelector("#project-list");
+const taskListContainer = document.querySelector(".task-list-container");
 
 // this will hold all the projects
 const projectManager = [];
@@ -41,6 +42,11 @@ const renderProject = () => {
 
         projectFrame.addEventListener("click", () => {
             setCurrentPorject(project);
+            if (currentProject.tasks.length > 0) {
+                taskListContainer.style.display = "block";
+            } else {
+                taskListContainer.style.display = "none";
+            }
             renderTask();
         });
 

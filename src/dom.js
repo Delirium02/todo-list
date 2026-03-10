@@ -6,17 +6,16 @@ import {
     defaultProject,
     currentProject,
     addTaskToProject,
-    renderProject
+    renderProject,
 } from "./projects.js";
 import "./style.css";
 
 const sidebarIcon = document.querySelector(".sidebar-icon");
 const sidebar = document.querySelector(".first-column");
-const secondColumn = document.querySelector(".second-column");
 
 sidebarIcon.addEventListener("click", () => {
     sidebar.classList.toggle("close-sidebar");
-})
+});
 
 const projectForm = document.querySelector("#project-form");
 const projectInputForm = document.querySelector(".project-input-form");
@@ -29,6 +28,7 @@ const createTaskBtn = document.querySelector(".create-task-btn");
 const cancelTaskBtn = document.querySelector(".cancel-task-btn");
 
 const taskListContainer = document.querySelector(".task-list-container");
+taskListContainer.style.display = "none";
 
 createProjectBtn.addEventListener("click", () => {
     createTaskBtn.style.display = "block";

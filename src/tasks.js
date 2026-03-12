@@ -1,4 +1,4 @@
-import { currentProject } from "./projects.js";
+import { currentProject, saveToLocalStorage } from "./projects.js";
 
 const taskList = document.querySelector("#task-list");
 const taskListContainer = document.querySelector(".task-list-container");
@@ -36,6 +36,7 @@ const renderTask = () => {
         deleteBtn.textContent = "Delete";
         deleteBtn.addEventListener("click", () => {
             currentProject.tasks.splice(currentProject.tasks.indexOf(task), 1);
+            saveToLocalStorage();
             renderTask();
         });
 

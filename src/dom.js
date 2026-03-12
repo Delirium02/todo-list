@@ -3,7 +3,6 @@ import {
     projectManager,
     createProject,
     addProject,
-    defaultProject,
     currentProject,
     addTaskToProject,
     renderProject,

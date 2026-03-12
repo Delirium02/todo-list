@@ -4,7 +4,7 @@ const projectList = document.querySelector("#project-list");
 const taskListContainer = document.querySelector(".task-list-container");
 
 // this will hold all the projects
-const projectManager = [];
+const projectManager = JSON.parse(localStorage.getItem("myTodoProjects")) || [];
 
 // function to create a new project
 function createProject(name) {
@@ -17,18 +17,20 @@ function createProject(name) {
 // add project to the manager
 const addProject = (project) => {
     projectManager.push(project);
+    saveToLocalStorage();
 };
 
-const defaultProject = createProject("Default Project");
-addProject(defaultProject);
+if (projectManager.length === 0) {
+    const defaultProject = createProject("Default Project");
+    projectManager.push(defaultProject);
+}
 
-let currentProject = defaultProject;
-
-// Create a new project and add it to the manager
+let currentProject = projectManager[0];
 
 // push tasks to a project
 const addTaskToProject = (project, task) => {
     project.tasks.push(task);
+    saveToLocalStorage();
 };
 
 const renderProject = () => {
@@ -41,7 +43,7 @@ const renderProject = () => {
         projectFrame.innerHTML = `<h3>${project.name}</h3>`;
 
         projectFrame.addEventListener("click", () => {
-            setCurrentPorject(project);
+            setCurrentProject(project);
             if (currentProject.tasks.length > 0) {
                 taskListContainer.style.display = "block";
             } else {
@@ -54,9 +56,13 @@ const renderProject = () => {
     });
 };
 
-const setCurrentPorject = (project) => {
+const setCurrentProject = (project) => {
     currentProject = project;
 };
+
+function saveToLocalStorage() {
+    localStorage.setItem("myTodoProjects", JSON.stringify(projectManager));
+}
 
 renderProject();
 
@@ -64,9 +70,9 @@ export {
     projectManager,
     createProject,
     addProject,
-    defaultProject,
     currentProject,
     addTaskToProject,
     renderProject,
-    setCurrentPorject,
+    setCurrentProject,
+    saveToLocalStorage
 };
